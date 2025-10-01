@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Exercise 1</title>
+    </head>
+    <body>
+        <div class="ex1"></div>
+        <script src="https://unpkg.com/supersimpledev/react.js"></script>
+        <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+        <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+        <script type="text/babel">
+            const shippingCost = 10;
+            const productCost = 20
+            const div = (
+                <div>
+                    <p>Product cost: ${productCost}</p>
+                    <p>Shipping cost ${shippingCost}</p>
+                    <p>Total cost: ${productCost + shippingCost}</p>
+                    <button> Place your order </button>
+                </div>
+
+            );
+            const container = document.querySelector('.ex1');
+            ReactDOM.createRoot(container).render(div)
+
+        </script>
+    </body>
+</html>

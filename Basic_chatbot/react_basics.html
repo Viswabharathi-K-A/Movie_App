@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- Minimum amount of code to set up react-->
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>       <!--Loading the external library of react. We use supersimple.dev instead of official documentation because here want the specific version which is imported by supersimple.dev-->
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>   <!--we need react-dom as well because it is specifally used for websites and react native is used for mobile apps-->
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>     <!-- Babel library - Javascript compiler. Translates other language to javascript. While using react we dont use normal javascript. We use enhanced version of javascript .jsx (javascript + xml). In jsx we can directly use html inside Javascript(<script>)-->    
+        <!-- But our web browswer doent understand jsx. So to translate the jsx into normal javascript so that web browswers can understand it. We use babel-->
+    <script type="text/babel">
+      const button = <button>hello</button>;
+      const paragraph = <p>paragraph of text</p>;
+      const div = (
+            <div>
+                <button>hello</button>
+                <p>paragraph of text</p> 
+            </div>
+        );
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(div);        // .render() is used to display the elements
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Minimum amount of code to set up react-->
+<!-- React = external library that helps us create website easier-->
+<html>
+  <head>
+    <title>Basic chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>       <!--Loading the external library of react. We use supersimple.dev instead of official documentation because here want the specific version which is imported by supersimple.dev-->
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>   <!--we need react-dom as well because it is specifally used for websites and react native is used for mobile apps-->
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>     <!-- Babel library - Javascript compiler. Translates other language to javascript. While using react we dont use normal javascript. We use enhanced version of javascript .jsx (javascript + xml). In jsx we can directly use html inside Javascript(<script>)-->    
+                                                                          <!-- But our web browswer doent understand jsx. So to translate the jsx into normal javascript so that web browswers can understand it. We use babel-->
+    <script type="text/babel">
+      function ChatInput(){                                               // container - function. Container name should begin with a capital letter.   <input/> - Shorthand for <input> </input>
+          return (
+            <>
+              <input 
+                placeholder="Send a message to chatbot" 
+                size="30"
+              />                             
+              <button>Send</button>
+            </>
+          );
+        }
+                                                                      // attributes are saved as props in this object
+      function ChatMessage({message, sender}){                                                            
+                                                                      // instead of props we can use {message, sender} too. const {message} = props is same as const message = props.message, it is known as destructuring
+      // const msg = props.message;
+      // const sender = props.sender;
+      // const {message, sender} = props;
+      
+        // if (sender == 'chatbot'){
+        //   return (
+        //     <div>
+        //       <img src="robot_img.png" width="50" />
+        //       {message}
+        //     </div>
+        //   );
+        // }    
+                                                                        // condition && expression -  Short circuit evaluation  // We use div here instead of fragment because div is an element and all the contents inside div will be displayed in the next line, if we have not used div then all the contents would be displayed next to the previous element 
+        return(
+          <div>                                                
+            {sender == "chatbot" && (<img src="robot_img.png" width="50" />)}              
+            {message}
+            {sender == "user" && (<img src="user_img.png" width="50" />)}
+          </div>
+      );
+      }
+
+
+                                            //Fragment element - <> </>, can be used to group elements instead of using extra nested divs
+                                            // <ChatInput></ChatInput> - component syntax for {ChatInput}. It is creating like our own html element
+            
+      function App(){
+        return (
+            <>
+                <ChatInput/>
+                <ChatMessage message="hello chatbot" sender="user"/>
+                <ChatMessage message="Hello! How can I help you" sender="chatbot"/>
+                <ChatMessage message="Can you get me todays date" sender="user"/>
+                <ChatMessage message="Today is Sep 27" sender="chatbot"/>
+            </>
+        );
+      }
+      
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App/>);        // .render() is used to display the elements
+    </script>
+  </body>
+</html>
