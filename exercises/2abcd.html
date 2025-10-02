@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--Create an <App> component that returns a paragraph with the text: "Hello, welcome to my website"-->
+<html>
+  <head>
+    <title>Basic chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>      
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>  
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>                                                                           
+    <script type="text/babel">    
+    
+      function LoginForm(){
+        return (
+          <> 
+              <p>Hello, welcome to my website</p>
+              <input type="text" placeholder="Email" /> <br />
+              <input type="text" placeholder="Password" /> <br />
+              <button>Login</button>
+              <button>Sign up</button>
+          </>
+        );
+
+      }
+            
+      function App(){
+        return (
+            <>
+              <LoginForm/>
+            </>
+        );
+      }
+      
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App/>);        
+    </script>
+  </body>
+</html>
