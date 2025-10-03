@@ -41,13 +41,13 @@
         //   );
         // }    
                                                                         // condition && expression -  Short circuit evaluation  // We use div here instead of fragment because div is an element and all the contents inside div will be displayed in the next line, if we have not used div then all the contents would be displayed next to the previous element 
-        return(
-          <div>                                                
-            {sender == "chatbot" && (<img src="robot_img.png" width="50" />)}              
-            {message}
-            {sender == "user" && (<img src="user_img.png" width="50" />)}
-          </div>
-      );
+            return(
+              <div>                                                
+                {sender == "chatbot" && (<img src="robot_img.png" width="50" />)}              
+                {message}
+                {sender == "user" && (<img src="user_img.png" width="50" />)}
+              </div>
+          );
       }
 
 
